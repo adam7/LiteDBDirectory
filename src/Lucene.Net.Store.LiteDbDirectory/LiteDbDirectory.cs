@@ -38,7 +38,9 @@ namespace Lucene.Net.Store.LiteDbDirectory
             _fileMetaDataCollection = _db.GetCollection<FileMetaData>(LiteDbCollectionsInfo.FileMetaData);
             _fileContenteCollection = db.GetCollection<FileContent>(LiteDbCollectionsInfo.FileContents);
 
-            CheckRequiredCollection();
+            // Commenting this out because it's always going to fail on first run causing construction to throw
+            // CheckRequiredCollection();
+
             SetLockFactory(new LiteDbLockFactory(_db));
         }
 
